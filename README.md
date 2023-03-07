@@ -15,7 +15,7 @@ Le **dossier** `generation` contient également un script qui sert à complexifi
 
 Voici une liste de tâches à accomplir pour améliorer notre projet :
 
-~~1. Complexifier les phrases simples et enregistrer les paires phrase-complexe/phrase-simple dans un fichier Excel.~~
-2. Entraîner un modèle pré-entraîné BERT ou GPT-2 sur notre dataset.
-3. Inclure une autre dataset (romans, etc.).
-4. Optimiser et fine-tuner le modèle.
+~~1. Complexifier les phrases simples et enregistrer les paires phrase-complexe/phrase-simple dans un fichier Excel.~~.   
+2. Entraîner un modèle pré-entraîné BERT ou GPT-2 sur notre dataset.    
+3. Inclure une autre dataset (romans, etc.).   
+4. Optimiser et fine-tuner le modèle.  
