@@ -8,7 +8,6 @@ import json
 import concurrent.futures
 import math
 import nltk
-import psutil
 import torch
 from transformers import AutoTokenizer, AutoModel
 from sklearn.cluster import KMeans
@@ -37,9 +36,6 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
         urls.append(url)
 
 for url in urls:
-    cpu_usage = psutil.cpu_percent()
-    memory_usage = psutil.virtual_memory().percent
-    print(f"CPU usage: {cpu_usage:.2f}%   Memory usage: {memory_usage:.2f}% step 1")
     response = requests.get(url)
     soup = BeautifulSoup(response.content, "html.parser")
     text = soup.get_text()
@@ -86,9 +82,6 @@ def extract_phrases(text):
                 break
         if simple:
             simple_phrases.append(phrase)
-            cpu_usage = psutil.cpu_percent()
-            memory_usage = psutil.virtual_memory().percent
-            print(f"CPU usage: {cpu_usage:.2f}%   Memory usage: {memory_usage:.2f}% step 2")
     return simple_phrases
 
 def encode_phrase(phrase):
@@ -124,3 +117,14 @@ with open('/home/ubuntu/scarp/output.txt', 'w') as f:
         cluster = np.where(cluster_labels == cluster_label)[0]
         for i in cluster:
             f.write(f'{simple_phrases[i]}\n')
+
+min_words = 3
+max_words = 8
+
+with open("/home/ubuntu/scarp/output.txt", "r") as file:
+    lines = file.readlines()
+
+lines = list(set(line.strip() for line in lines if len(line.strip().split()) >= min_words and len(line.strip().split()) <= max_words))
+
+with open("/home/ubuntu/scarp/output.txt", "w") as file:
+    file.writelines("\n".join(lines))
