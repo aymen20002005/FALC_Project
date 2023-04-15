@@ -20,7 +20,7 @@ current_size = 0
 max_size = 50 * 1024 * 1024 * 1024
 
 # Define the number of articles you want to retrieve (>2000 for decent results)
-n_articles = 46000
+n_articles = 100000
 
 urls = [] 
 def fetch_random_article():
@@ -95,7 +95,7 @@ for url in urls:
     response = requests.get(url)
     soup = BeautifulSoup(response.content, "html.parser")
     text = soup.get_text()
-    text = ''.join([i for i in text if not i.isdigit()])
+    text = ''.join([i for i in text])
     simple_phrases += extract_phrases(text)
 
 encoded_phrases = []
