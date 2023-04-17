@@ -11,6 +11,7 @@ import nltk
 import torch
 from transformers import AutoTokenizer, AutoModel
 from sklearn.cluster import KMeans
+import datetime
 
 dictionary = enchant.Dict("fr")
 word_freqs = Counter()
@@ -20,7 +21,7 @@ current_size = 0
 max_size = 50 * 1024 * 1024 * 1024
 
 # Define the number of articles you want to retrieve (>2000 for decent results)
-n_articles = 100000
+n_articles = 300
 
 urls = [] 
 def fetch_random_article():
@@ -112,7 +113,11 @@ kmeans.fit(encoded_phrases)
 cluster_labels = kmeans.labels_
 
 
-with open('/home/ubuntu/scarp/output.txt', 'w') as f:
+
+now = datetime.datetime.now()
+output_file_name = f'output-{now.strftime("%Y-%m-%d-%H-%M-%S")}.txt'
+
+with open(f'/home/ubuntu/scarp/{output_file_name}', 'w') as f:
     for cluster_label in set(cluster_labels):
         cluster = np.where(cluster_labels == cluster_label)[0]
         for i in cluster:
@@ -121,10 +126,10 @@ with open('/home/ubuntu/scarp/output.txt', 'w') as f:
 min_words = 3
 max_words = 8
 
-with open("/home/ubuntu/scarp/output.txt", "r") as file:
+with open(f'/home/ubuntu/scarp/{output_file_name}', "r") as file:
     lines = file.readlines()
 
 lines = list(set(line.strip() for line in lines if len(line.strip().split()) >= min_words and len(line.strip().split()) <= max_words))
 
-with open("/home/ubuntu/scarp/output.txt", "w") as file:
+with open(f'/home/ubuntu/scarp/{output_file_name}', "w") as file:
     file.writelines("\n".join(lines))
