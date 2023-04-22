@@ -21,7 +21,7 @@ current_size = 0
 max_size = 50 * 1024 * 1024 * 1024
 
 # Define the number of articles you want to retrieve (>5000 for decent results)
-n_articles = 300
+n_articles = 1000
 
 urls = [] 
 def fetch_random_article():
