@@ -15,10 +15,6 @@ import datetime
 
 dictionary = enchant.Dict("fr")
 word_freqs = Counter()
-current_size = 0
-
-# Set maximum size max is 10/12 gb (collab limitation)
-max_size = 50 * 1024 * 1024 * 1024
 
 # Define the number of articles you want to retrieve (>5000 for decent results)
 n_articles = 1000
@@ -45,9 +41,6 @@ for url in urls:
     for word in words:
         if dictionary.check(word):
             word_freqs[word] += 1
-    current_size += len(text)
-    if current_size >= max_size:
-        break
 
 # Zipf's law
 if len(word_freqs) > 1:
@@ -114,7 +107,6 @@ kmeans = KMeans(n_clusters=30)
 kmeans.fit(encoded_phrases)
 
 cluster_labels = kmeans.labels_
-
 
 # we save the output into a txt file
 now = datetime.datetime.now()
