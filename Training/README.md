@@ -28,4 +28,4 @@ Le modèle est chargé à partir du fichier sauvegardé, et une phrase est simpl
 
 1. L'apprentissage de notre modèle a été réalisé sur Google Colab afin de réduire les coûts, toutefois il est envisageable de l'exécuter sur une instance plus puissante et d'utiliser, par exemple, t5-base ou t5-large.
 
-2. Notre ensemble de données de 4300 phrases n'est pas très étendu, un overfitting apparaît dès les premiers 20 epochs, il est possible de générer davantage de phrases pour entraîner le modèle et améliorer le résultat final.
+2. Notre ensemble de données de 4300 phrases n'est pas très étendu, un overfitting apparaît dès les premiers 20 epochs, il est possible de générer davantage de phrases pour entraîner plus le modèle et améliorer le résultat final.

@@ -1,15 +1,40 @@
 # FALC
 
 Cette repository a été créée dans le but de rassembler les solutions algorithmiques de notre projet "Projet d'Ingénieur en Equipe : Traduction automatique de contenu textuel en FALC" à l'ENSTA. Cette repository servira également de lieu de stockage pour les documents utiles, permettant ainsi d'assurer une gestion de version rigoureuse.
+## Démarche
+
+Le but de ce projet est de concevoir une application capable de traduire du français complexe en FALC (Facile à Lire et à Comprendre) en utilisant l'intelligence artificielle.
+
+**Les modèles NLP** (Natural Language Processing) de l'intelligence artificielle, tels que le T5 que nous avons entraîné (plus précisément, fine-tuné), nécessitent évidemment des données sur lesquelles ils doivent s'entraîner. Cependant, il n'y a pas suffisamment de textes FALC disponibles sur l'internet avec les textes complexes correspondants. Par conséquent, il n'existe pas de dataset prêt pour entraîner le modèle.
+
+L'approche accessible pour nous en tant qu'étudiant est la **data augmentation**. Nous essayons d'extraire des phrases simples de Wikipédia et de les complexifier pour ainsi créer notre propre dataset artificiel accessible ici `Generation/gpt3/dataset.xlsx`. 
+
+Vous pouvez voir les détails de cette partie ci-dessous.
+
 
 ## Génération de données
+### scarp
+Le **dossier** `web_scraping` contient un script `web_scrap.py` ainsi qu'un autre code `cleanup.ipynb.`. Ces codes nous permettent tout d'abord d'extraire des phrases simples depuis Wikipédia. Ensuite, nous les filtrons afin d'obtenir, au final, des phrases qui peuvent être considérées comme FALC selon nos modestes critères.
 
-Le **dossier** `web_scrapping` contient un script `scrapping.ipynb` qui peut être testé en l'uploadant sur votre Drive. Le script génère trois fichiers intermédiaires, mais le résultat final est stocké dans `output4.txt`, où vous trouverez des phrases simples en français.
+Voici quelques phrases extraites avec cette démarche :
+```
+Il résiste bien au vent.
+Il passe en dernier.
+La cathédrale a cinq portes.
+```
 
-Notez que le script peut prendre environ 2 heures pour traiter 7000 articles de Wikipédia. Vous pouvez le tester sur moins d'articles si vous le souhaitez.
+### Complexification
 
-Le **dossier** `generation` contient également un script qui sert à complexifier les phrases du fichier `output3.txt`. Vous pouvez voir les résultats finaux en dans le fichier `output4_translated.xlsx`.
+Le **dossier** `generation` contient du code qui sert à complexifier les phrases simples extraites de FALC en phrases plus complexes.
 
+Voici quelques exemples de phrases issues de ce processus :
+```
+Bien que le vent souffle avec force, il est remarquablement résistant.
+
+Bien qu'il soit souvent en avance, il a décidé de passer en dernier cette fois-ci pour laisser aux autres participants le temps de s'organiser avant lui.
+
+La cathédrale dispose de cinq entrées distinctes permettant aux fidèles de pénétrer dans l'édifice religieux majestueux et de s'imprégner de sa grandeur architecturale.
+```
 
 ## Tâches à accomplir
 
