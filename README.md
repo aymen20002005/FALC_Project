@@ -1,6 +1,6 @@
 # FALC
 
-Cette repository a été créée dans le but de rassembler les solutions algorithmiques de notre projet "Projet d'Ingénieur en Equipe : Traduction automatique de contenu textuel en FALC" à l'ENSTA. Cette repository servira également de lieu de stockage pour les documents utiles, permettant ainsi d'assurer une gestion de version rigoureuse.
+Cette repo a été créée dans le but de rassembler les solutions algorithmiques de notre projet "Projet d'Ingénieur en Equipe : Traduction automatique de contenu textuel en FALC" à l'ENSTA. Cette repository servira également de lieu de stockage pour les documents utiles, permettant ainsi d'assurer une gestion de version rigoureuse.
 ## Démarche
 
 Le but de ce projet est de concevoir une application capable de traduire du français complexe en FALC (Facile à Lire et à Comprendre) en utilisant l'intelligence artificielle.
@@ -13,7 +13,7 @@ Vous pouvez voir les détails de cette partie ci-dessous.
 
 
 ## Génération de données
-### scarp
+### Scarping
 Le **dossier** `web_scraping` contient un script `web_scrap.py` ainsi qu'un autre code `cleanup.ipynb.`. Ces codes nous permettent tout d'abord d'extraire des phrases simples depuis Wikipédia. Ensuite, nous les filtrons afin d'obtenir, au final, des phrases qui peuvent être considérées comme FALC selon nos modestes critères.
 
 Voici quelques phrases extraites avec cette démarche :
@@ -35,12 +35,12 @@ Bien qu'il soit souvent en avance, il a décidé de passer en dernier cette fois
 
 La cathédrale dispose de cinq entrées distinctes permettant aux fidèles de pénétrer dans l'édifice religieux majestueux et de s'imprégner de sa grandeur architecturale.
 ```
-
 ## Tâches à accomplir
 
-Voici une liste de tâches à accomplir pour améliorer notre projet :
+1. ~~Extraire des phrases simples de Wikipédia.~~
+2. ~~Complexifier les phrases simples et enregistrer les paires phrase-complexe/phrase-simple dans un fichier Excel.~~
+3. ~~Fine-tuner un modèle pré-entraîné sur notre dataset.~~
+4. ~~Créer une interface graphique conviviale et ergonomique pour l'utilisateur.~~
+5. Inclure un autre dataset de textes variés tels que des romans, afin d'enrichir notre corpus en FALC de meilleure qualité.
+6. Réviser l'architecture du modèle pour qu'il soit mieux adapté à l'apprentissage et la génération de textes FALC.
 
-~~1. Complexifier les phrases simples et enregistrer les paires phrase-complexe/phrase-simple dans un fichier Excel.~~.   
-2. Entraîner un modèle pré-entraîné BERT ou GPT-2 sur notre dataset.    
-3. Inclure une autre dataset (romans, etc.).   
-4. Optimiser et fine-tuner le modèle.  
