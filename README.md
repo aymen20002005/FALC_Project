@@ -3,6 +3,10 @@
 Cette repo a été créée dans le but de rassembler les solutions algorithmiques de notre projet "Projet d'Ingénieur en Equipe : Traduction automatique de contenu textuel en FALC" à l'ENSTA. Cette repository servira également de lieu de stockage pour les documents utiles, permettant ainsi d'assurer une gestion de version rigoureuse.
 ## Quelques résultats
 
+![Test 1](https://github.com/fira7s/FALC/blob/main/blob/4.PNG )
+
+![Test 2](https://github.com/fira7s/FALC/blob/main/blob/5.PNG )
+
 ## Démarche
 
 Le but de ce projet est de concevoir une application capable de traduire du français complexe en FALC (Facile à Lire et à Comprendre) en utilisant l'intelligence artificielle.
